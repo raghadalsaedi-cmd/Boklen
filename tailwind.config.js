@@ -1,0 +1,28 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./App.{js,jsx,ts,tsx}", "./screens/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#ecc813",
+        "primary-content": "#181711",
+        "background-light": "#f8f8f6",
+        "background-dark": "#221f10",
+        "surface-light": "#ffffff",
+        "surface-dark": "#2c2a1c",
+        "text-light": "#181711",
+        "text-dark": "#e6e4db",
+        "subtext-light": "#5f5e55",
+        "subtext-dark": "#a3a199",
+        "border-light": "#e6e4db",
+        "border-dark": "#3e3b2e",
+      },
+      fontFamily: {
+        "display": ["Noto Sans Arabic", "Inter", "sans-serif"],
+        "body": ["Noto Sans Arabic", "Inter", "sans-serif"]
+      },
+      borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+    },
+  },
+  plugins: [],
+}
