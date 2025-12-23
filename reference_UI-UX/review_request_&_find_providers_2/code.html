@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Searching for Providers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ecc813",
+                        "primary-dark": "#d4b20a",
+                        "background-light": "#f8f8f6",
+                        "background-dark": "#221f10",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d2a1d",
+                        "text-main-light": "#1b190d",
+                        "text-main-dark": "#f3f1e7",
+                        "text-sub-light": "#5c5a4d",
+                        "text-sub-dark": "#a3a195",
+                    },
+                    fontFamily: {
+                        "display": ['"Noto Sans Arabic"', "Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-center">
+<div class="relative flex h-full min-h-screen w-full max-w-md flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<header class="sticky top-0 z-20 flex items-center justify-between bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md px-4 py-3 border-b border-black/5 dark:border-white/5">
+<button class="flex size-10 items-center justify-center rounded-full text-text-main-light dark:text-text-main-dark hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined rtl:rotate-180">arrow_forward</span>
+</button>
+<h2 class="text-text-main-light dark:text-text-main-dark text-lg font-bold leading-tight tracking-tight">البحث عن مقدمي الخدمة</h2>
+<div class="size-10"></div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center pb-32 overflow-hidden relative">
+<div class="absolute top-0 w-full flex flex-col items-center justify-center pt-6 pb-4">
+<div class="flex gap-3">
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<div class="h-2 w-8 rounded-full bg-primary animate-pulse"></div>
+</div>
+<p class="mt-2 text-xs font-medium text-text-sub-light dark:text-text-sub-dark">جاري المعالجة...</p>
+</div>
+<div class="flex flex-col items-center justify-center w-full px-6 mt-10">
+<div class="relative flex items-center justify-center mb-8 size-48">
+<div class="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+<div class="absolute inset-4 bg-primary/10 rounded-full animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
+<div class="relative z-10 flex items-center justify-center size-24 bg-surface-light dark:bg-surface-dark rounded-full shadow-xl border-4 border-primary/10">
+<span class="material-symbols-outlined text-primary text-5xl">person_search</span>
+</div>
+</div>
+<h2 class="text-xl font-bold text-text-main-light dark:text-text-main-dark mb-3 text-center">
+                    جاري البحث عن مقدمي الخدمة...
+                </h2>
+<p class="text-text-sub-light dark:text-text-sub-dark text-center text-sm leading-relaxed max-w-[80%] mb-10">
+                    يرجى الانتظار، نقوم الآن بإبلاغ الشركاء القريبين بطلبك للحصول على أفضل العروض.
+                </p>
+<div class="w-full bg-surface-light dark:bg-surface-dark border border-black/5 dark:border-white/5 rounded-2xl p-4 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-center justify-between mb-3 border-b border-black/5 dark:border-white/5 pb-2">
+<span class="text-xs font-bold text-text-sub-light dark:text-text-sub-dark">ملخص الطلب (٣ معدات)</span>
+<div class="flex gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+<span class="text-[10px] text-green-600 font-medium">نشط</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="size-10 shrink-0 rounded-lg bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-center bg-cover opacity-90" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4D0aFVagLz3E02lodHN8GPVm8NVelqsDiQmDnpUxx7q57A4pE1XqaartSCizA-yQctWKpMf1_L1HeoNHYXPcTn2SJ7joOMyd4Uc82t1bImv-MTWqqIQPipO6qGVSRRcQ5G3ZMfqe2zja2uaNle_qbVn9vJa8D3lgy7An5RyZiaAjrapeu_rWQNNcCF5Knm_5NCAAextI0Utzz93dDxjl2zMN26A6CiX6Wr1AcLzU7fWvb0voKTXUErGdsCWYkQrz9cjcxx9jpDLg");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-bold text-text-main-light dark:text-text-main-dark truncate">٢ x حفارة - ٢٠ طن</h4>
+<p class="text-[10px] text-text-sub-light dark:text-text-sub-dark truncate">مع سائق، يومية</p>
+</div>
+<div class="size-6 flex items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined text-primary text-sm">search</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-10 shrink-0 rounded-lg bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-center bg-cover opacity-90" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAflER3WWr2o4xrc_214_7VimkbDCf27pDZEOOPnQ2ytEaVeWbfpE4Ir5Qa0kGW0_PAwrca48bBn-dE4rzSdy2kMjVyRgSNHaEbZ2ygz38YZwBwNDW4nZt5LYTkfyHtTZ54T-ZzXFd9ZTEf-zpF9_XXrNez5S5ok7g7B15dS7FzXgE23cP5r1EX1gjvdgRDBzpwI-M13wrEaSt4BHZZ9lJRTgspej7DDt6wmDRSkUzsT2Z2G1D69RlH8dKghwHd8oLSseb8FI2dc28");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-bold text-text-main-light dark:text-text-main-dark truncate">١ x شاحنة قلابة</h4>
+<p class="text-[10px] text-text-sub-light dark:text-text-sub-dark truncate">بدون سائق، شهرية</p>
+</div>
+<div class="size-6 flex items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined text-primary text-sm">search</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="absolute bottom-0 left-0 right-0 z-20 flex h-[72px] items-center justify-around border-t border-black/5 dark:border-white/5 bg-surface-light dark:bg-surface-dark pb-2">
+<a class="group flex flex-col items-center gap-1 p-2 text-text-sub-light dark:text-text-sub-dark hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform text-[24px]">home</span>
+<span class="text-[10px] font-medium">الرئيسية</span>
+</a>
+<a class="group flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px] fill-current">assignment</span>
+<span class="absolute -right-1 -top-1 flex h-3 w-3 items-center justify-center rounded-full bg-red-500 text-[8px] text-white">2</span>
+</div>
+<span class="text-[10px] font-bold">الطلبات</span>
+</a>
+<a class="group flex flex-col items-center gap-1 p-2 text-text-sub-light dark:text-text-sub-dark hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform text-[24px]">person</span>
+<span class="text-[10px] font-medium">حسابي</span>
+</a>
+</nav>
+</div>
+
+</body></html>

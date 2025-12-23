@@ -1,0 +1,424 @@
+import React, { useState, useRef } from 'react';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { MaterialIcons } from '@expo/vector-icons';
+
+const COLORS = {
+    primary: '#ca8a04',
+    backgroundLight: '#f6f7f8',
+    surfaceLight: '#ffffff',
+    textLight: '#1e293b',
+    textDark: '#0f172a',
+    subtext: '#64748b',
+    border: '#e2e8f0',
+};
+
+export default function UserRegistrationScreen({ navigation }) {
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [otp, setOtp] = useState(['', '', '', '']);
+    const inputRefs = useRef([]);
+    const [step, setStep] = useState(1); // 1: Phone, 2: OTP
+
+    const handleSendOtp = () => {
+        if (phoneNumber.length >= 9) {
+            setStep(2);
+        }
+    };
+
+    const handleVerify = () => {
+        // Mock verification
+        navigation.replace('NafathVerification');
+    };
+
+    return (
+        <SafeAreaView style={styles.container}>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={styles.keyboardView}
+            >
+                <View style={styles.header}>
+                    <TouchableOpacity style={styles.backButton}>
+                        <MaterialIcons name="arrow-forward" size={24} color={COLORS.textDark} />
+                    </TouchableOpacity>
+                    <Text style={styles.headerTitle}>تسجيل جديد</Text>
+                    <View style={{ width: 40 }} />
+                </View>
+
+                <ScrollView contentContainerStyle={styles.content}>
+                    <View style={styles.iconContainer}>
+                        <MaterialIcons name="app-registration" size={32} color={COLORS.primary} />
+                    </View>
+
+                    <Text style={styles.title}>أنشئ حسابك الآن</Text>
+                    <Text style={styles.subtitle}>
+                        أدخل رقم الجوال لاستلام رمز التحقق والمتابعة في عملية التسجيل
+                    </Text>
+
+                    {step === 1 ? (
+                        <View style={styles.formSection}>
+                            <Text style={styles.label}>رقم الجوال</Text>
+                            <View style={[styles.inputContainer, styles.phoneInputContainer]}>
+                                <View style={styles.countryCode}>
+                                    <Text style={styles.countryCodeText}>🇸🇦 +966</Text>
+                                </View>
+                                <TextInput
+                                    style={styles.phoneInput}
+                                    placeholder="5X XXX XXXX"
+                                    keyboardType="phone-pad"
+                                    value={phoneNumber}
+                                    onChangeText={setPhoneNumber}
+                                    maxLength={9}
+                                />
+                                <MaterialIcons name="smartphone" size={24} color={COLORS.subtext} style={styles.inputIcon} />
+                            </View>
+                        </View>
+                    ) : (
+                        <View style={styles.formSection}>
+                            <View style={styles.otpHeader}>
+                                <Text style={styles.label}>رمز التحقق</Text>
+                                <Text style={styles.otpCount}>4 خانات</Text>
+                            </View>
+                            <View style={styles.otpContainer}>
+                                {otp.map((digit, index) => (
+                                    <TextInput
+                                        key={index}
+                                        ref={(ref) => (inputRefs.current[index] = ref)}
+                                        style={styles.otpInput}
+                                        keyboardType="number-pad"
+                                        textContentType="oneTimeCode"
+                                        autoComplete="sms-otp"
+                                        selectTextOnFocus={true}
+                                        maxLength={4} // Increased to allow pasting/autofill
+                                        value={digit}
+                                        onChangeText={(text) => {
+                                            // Handle paste logic or multi-digit input
+                                            if (text.length > 1) {
+                                                const chars = text.split('');
+                                                const newOtp = [...otp];
+
+                                                chars.forEach((char, i) => {
+                                                    if (index + i < 4) {
+                                                        newOtp[index + i] = char;
+                                                    }
+                                                });
+                                                setOtp(newOtp);
+
+                                                // Focus behavior after paste
+                                                const nextIndex = Math.min(index + chars.length, 3);
+                                                // If we filled the current slot, move to the next logical slot
+                                                if (nextIndex < 4) {
+                                                    inputRefs.current[nextIndex]?.focus();
+                                                }
+                                                // If filled completely, maybe dismiss keyboard or just stay on last?
+                                                // For now keeping focus on last filled or specific index is safer.
+                                                if (index + chars.length >= 4) {
+                                                    inputRefs.current[3]?.focus();
+                                                }
+                                                return;
+                                            }
+
+                                            // Default single character behavior
+                                            const newOtp = [...otp];
+                                            newOtp[index] = text;
+                                            setOtp(newOtp);
+
+                                            // Auto-advance focus
+                                            if (text && index < 3) {
+                                                inputRefs.current[index + 1]?.focus();
+                                            }
+
+                                            // Handle backspace resulting in jump back if needed? 
+                                            // Usually handled by onKeyPress for empty fields.
+                                            // If we turn a field empty, we might want to stay here (standard) or move back?
+                                            // Standard is stay. Backspace on empty moves back.
+                                        }}
+                                        onKeyPress={({ nativeEvent }) => {
+                                            // Handle backspace navigation
+                                            if (nativeEvent.key === 'Backspace' && !digit && index > 0) {
+                                                inputRefs.current[index - 1]?.focus();
+                                            }
+                                        }}
+                                        placeholder="•"
+                                    />
+                                ))}
+                            </View>
+                            <View style={styles.resendContainer}>
+                                <Text style={styles.resendLabel}>لم يصلك الرمز؟</Text>
+                                <TouchableOpacity>
+                                    <Text style={styles.resendButton}>إعادة إرسال (00:59)</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    )}
+
+                    <View style={styles.divider}>
+                        <View style={styles.line} />
+                        <Text style={styles.dividerText}>التحقق</Text>
+                        <View style={styles.line} />
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.primaryButton}
+                        onPress={step === 1 ? handleSendOtp : handleVerify}
+                    >
+                        <Text style={styles.primaryButtonText}>
+                            {step === 1 ? 'تسجيل ومتابعة' : 'تحقق ودخول'}
+                        </Text>
+                        <MaterialIcons name="arrow-back" size={20} color="white" />
+                    </TouchableOpacity>
+
+                    <View style={styles.footer}>
+                        <View style={styles.loginRow}>
+                            <Text style={styles.footerText}>لديك حساب بالفعل؟</Text>
+                            <TouchableOpacity>
+                                <Text style={styles.linkText}>تسجيل الدخول</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={styles.termsText}>
+                            من خلال التسجيل، أنت توافق على <Text style={styles.underline}>الشروط والأحكام</Text> و <Text style={styles.underline}>سياسة الخصوصية</Text>
+                        </Text>
+
+                        {/* Provider Switch */}
+                        <TouchableOpacity
+                            style={styles.providerSwitch}
+                            onPress={() => navigation.navigate('CompanyInfo')}
+                        >
+                            <Text style={styles.providerSwitchText}>الدخول كمزود خدمة (شركات)</Text>
+                            <MaterialIcons name="business" size={16} color={COLORS.subtext} />
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
+        </SafeAreaView>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: COLORS.backgroundLight,
+    },
+    keyboardView: {
+        flex: 1,
+    },
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+    },
+    backButton: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: COLORS.surfaceLight,
+    },
+    headerTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: COLORS.textDark,
+    },
+    content: {
+        padding: 20,
+        alignItems: 'center',
+    },
+    iconContainer: {
+        width: 64,
+        height: 64,
+        borderRadius: 16,
+        backgroundColor: 'rgba(202, 138, 4, 0.1)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 16,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: COLORS.textDark,
+        marginBottom: 8,
+    },
+    subtitle: {
+        fontSize: 16,
+        color: COLORS.subtext,
+        textAlign: 'center',
+        lineHeight: 24,
+        marginBottom: 32,
+        maxWidth: 280,
+    },
+    formSection: {
+        width: '100%',
+        marginBottom: 24,
+    },
+    label: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: COLORS.textDark,
+        marginBottom: 8,
+        textAlign: 'right',
+    },
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: COLORS.surfaceLight,
+        borderWidth: 1,
+        borderColor: COLORS.border,
+        borderRadius: 12,
+        height: 56,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+        elevation: 1,
+    },
+    phoneInputContainer: {
+        overflow: 'hidden',
+    },
+    countryCode: {
+        paddingHorizontal: 16,
+        height: '100%',
+        justifyContent: 'center',
+        backgroundColor: '#f8fafc',
+        borderRightWidth: 1,
+        borderRightColor: COLORS.border,
+    },
+    countryCodeText: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: COLORS.textDark,
+    },
+    phoneInput: {
+        flex: 1,
+        height: '100%',
+        paddingHorizontal: 16,
+        fontSize: 18,
+        textAlign: 'left',
+        color: COLORS.textDark,
+    },
+    inputIcon: {
+        marginRight: 16,
+    },
+    otpHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        marginBottom: 8,
+    },
+    otpCount: {
+        fontSize: 12,
+        color: COLORS.subtext,
+    },
+    otpContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        gap: 12,
+    },
+    otpInput: {
+        flex: 1,
+        height: 56,
+        backgroundColor: COLORS.surfaceLight,
+        borderWidth: 1,
+        borderColor: COLORS.border,
+        borderRadius: 12,
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: COLORS.textDark,
+    },
+    resendContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 12,
+    },
+    resendLabel: {
+        fontSize: 12,
+        color: COLORS.subtext,
+    },
+    resendButton: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: COLORS.primary,
+    },
+    divider: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        marginBottom: 24,
+    },
+    line: {
+        flex: 1,
+        height: 1,
+        backgroundColor: COLORS.border,
+    },
+    dividerText: {
+        marginHorizontal: 12,
+        fontSize: 12,
+        color: COLORS.subtext,
+        backgroundColor: COLORS.backgroundLight,
+        paddingHorizontal: 8,
+    },
+    primaryButton: {
+        width: '100%',
+        height: 56,
+        backgroundColor: COLORS.primary,
+        borderRadius: 12,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: COLORS.primary,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+        elevation: 4,
+        marginBottom: 24,
+    },
+    primaryButtonText: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginLeft: 8,
+    },
+    footer: {
+        alignItems: 'center',
+        gap: 16,
+    },
+    loginRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 6,
+    },
+    footerText: {
+        fontSize: 14,
+        color: COLORS.subtext,
+    },
+    linkText: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: COLORS.primary,
+    },
+    termsText: {
+        fontSize: 11,
+        color: COLORS.subtext,
+        textAlign: 'center',
+        paddingHorizontal: 32,
+        lineHeight: 18,
+    },
+    underline: {
+        textDecorationLine: 'underline',
+    },
+    providerSwitch: {
+        marginTop: 16,
+        padding: 12,
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 8,
+        opacity: 0.7,
+    },
+    providerSwitchText: {
+        fontSize: 12,
+        color: COLORS.subtext,
+        fontWeight: '500',
+    },
+});

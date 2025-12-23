@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Request</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ecc813",
+                        "primary-dark": "#d4b20a",
+                        "background-light": "#f8f8f6",
+                        "background-dark": "#221f10",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d2a1d",
+                        "text-main-light": "#1b190d",
+                        "text-main-dark": "#f3f1e7",
+                        "text-sub-light": "#5c5a4d",
+                        "text-sub-dark": "#a3a195",
+                    },
+                    fontFamily: {
+                        "display": ['"Noto Sans Arabic"', "Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-center">
+<div class="relative flex h-full min-h-screen w-full max-w-md flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<header class="sticky top-0 z-20 flex items-center justify-between bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md px-4 py-3 border-b border-black/5 dark:border-white/5">
+<button class="flex size-10 items-center justify-center rounded-full text-text-main-light dark:text-text-main-dark hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined rtl:rotate-180">arrow_forward</span>
+</button>
+<h2 class="text-text-main-light dark:text-text-main-dark text-lg font-bold leading-tight tracking-tight">مراجعة الطلب</h2>
+<div class="size-10"></div> 
+</header>
+<main class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<div class="flex w-full flex-col items-center justify-center pt-6 pb-4">
+<div class="flex gap-3">
+<div class="h-2 w-2 rounded-full bg-primary/30"></div>
+<div class="h-2 w-8 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-primary/30"></div>
+</div>
+<p class="mt-2 text-xs font-medium text-text-sub-light dark:text-text-sub-dark">الخطوة ٢ من ٣</p>
+</div>
+<div class="flex flex-col gap-4 px-4 mt-2">
+<div class="group relative flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark p-3 shadow-sm border border-black/5 dark:border-white/5 transition-all hover:shadow-md">
+<div class="flex gap-4">
+<div class="relative shrink-0 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 size-20">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Yellow excavator construction machinery side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4D0aFVagLz3E02lodHN8GPVm8NVelqsDiQmDnpUxx7q57A4pE1XqaartSCizA-yQctWKpMf1_L1HeoNHYXPcTn2SJ7joOMyd4Uc82t1bImv-MTWqqIQPipO6qGVSRRcQ5G3ZMfqe2zja2uaNle_qbVn9vJa8D3lgy7An5RyZiaAjrapeu_rWQNNcCF5Knm_5NCAAextI0Utzz93dDxjl2zMN26A6CiX6Wr1AcLzU7fWvb0voKTXUErGdsCWYkQrz9cjcxx9jpDLg");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-start py-0.5">
+<div class="flex items-start justify-between">
+<h3 class="text-text-main-light dark:text-text-main-dark text-base font-bold line-clamp-1 leading-tight">
+<span class="text-primary mr-0.5">٢ x</span> حفارة - ٢٠ طن
+                                </h3>
+<button class="text-red-500 hover:text-red-600 p-1 -ml-2 -mt-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<p class="text-text-main-light dark:text-text-main-dark text-sm font-medium mt-1">
+                                (مع سائق، يومية)
+                            </p>
+<p class="text-text-sub-light dark:text-text-sub-dark text-xs font-normal line-clamp-1 mt-1">
+                                كاتربيلر ٣٢٠ أو مماثل
+                            </p>
+</div>
+</div>
+<div class="flex items-center justify-end border-t border-black/5 dark:border-white/5 pt-2 mt-1">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+                            تعديل الخيارات والكمية
+                        </button>
+</div>
+</div>
+<div class="group relative flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark p-3 shadow-sm border border-black/5 dark:border-white/5 transition-all hover:shadow-md">
+<div class="flex gap-4">
+<div class="relative shrink-0 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 size-20">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Heavy dumper truck on construction site" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAflER3WWr2o4xrc_214_7VimkbDCf27pDZEOOPnQ2ytEaVeWbfpE4Ir5Qa0kGW0_PAwrca48bBn-dE4rzSdy2kMjVyRgSNHaEbZ2ygz38YZwBwNDW4nZt5LYTkfyHtTZ54T-ZzXFd9ZTEf-zpF9_XXrNez5S5ok7g7B15dS7FzXgE23cP5r1EX1gjvdgRDBzpwI-M13wrEaSt4BHZZ9lJRTgspej7DDt6wmDRSkUzsT2Z2G1D69RlH8dKghwHd8oLSseb8FI2dc28");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-start py-0.5">
+<div class="flex items-start justify-between">
+<h3 class="text-text-main-light dark:text-text-main-dark text-base font-bold line-clamp-1 leading-tight">
+<span class="text-primary mr-0.5">١ x</span> شاحنة قلابة
+                                </h3>
+<button class="text-red-500 hover:text-red-600 p-1 -ml-2 -mt-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<p class="text-text-main-light dark:text-text-main-dark text-sm font-medium mt-1">
+                                (بدون سائق، شهرية)
+                            </p>
+<p class="text-text-sub-light dark:text-text-sub-dark text-xs font-normal line-clamp-1 mt-1">
+                                ١٨ متر مكعب
+                            </p>
+</div>
+</div>
+<div class="flex items-center justify-end border-t border-black/5 dark:border-white/5 pt-2 mt-1">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+                            تعديل الخيارات والكمية
+                        </button>
+</div>
+</div>
+<button class="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-gray-300 dark:border-gray-600 bg-transparent p-4 text-text-sub-light dark:text-text-sub-dark hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-200 mt-2">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-sm font-bold">أضف المزيد من المعدات</span>
+</button>
+</div>
+<div class="h-6"></div>
+</main>
+<div class="absolute bottom-[72px] left-0 right-0 z-10 border-t border-black/5 dark:border-white/5 bg-surface-light dark:bg-surface-dark p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+<div class="flex items-center justify-between mb-4">
+<span class="text-text-sub-light dark:text-text-sub-dark text-sm font-medium">إجمالي المعدات</span>
+<span class="text-text-main-light dark:text-text-main-dark text-lg font-bold">٣ معدات</span>
+</div>
+<button class="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-black shadow-md hover:bg-primary-dark hover:shadow-lg active:scale-[0.98] transition-all">
+<span class="text-base font-bold">العثور على مقدمي الخدمة</span>
+<span class="material-symbols-outlined rtl:rotate-180 text-[20px]">arrow_right_alt</span>
+</button>
+</div>
+<nav class="absolute bottom-0 left-0 right-0 z-20 flex h-[72px] items-center justify-around border-t border-black/5 dark:border-white/5 bg-surface-light dark:bg-surface-dark pb-2">
+<a class="group flex flex-col items-center gap-1 p-2 text-text-sub-light dark:text-text-sub-dark hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform text-[24px]">home</span>
+<span class="text-[10px] font-medium">الرئيسية</span>
+</a>
+<a class="group flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px] fill-current">assignment</span>
+<span class="absolute -right-1 -top-1 flex h-3 w-3 items-center justify-center rounded-full bg-red-500 text-[8px] text-white">2</span>
+</div>
+<span class="text-[10px] font-bold">الطلبات</span>
+</a>
+<a class="group flex flex-col items-center gap-1 p-2 text-text-sub-light dark:text-text-sub-dark hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform text-[24px]">person</span>
+<span class="text-[10px] font-medium">حسابي</span>
+</a>
+</nav>
+</div>
+
+</body></html>

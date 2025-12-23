@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Machinery to Request</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#ecc813",
+                "background-light": "#f8f8f6",
+                "background-dark": "#221f10",
+                },
+                fontFamily: {
+                "display": ["Inter", "Noto Sans Arabic", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b190d] dark:text-[#f3f1e7] font-display overflow-x-hidden selection:bg-primary/30">
+<div class="relative flex flex-col min-h-screen pb-32">
+<header class="sticky top-0 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+<div class="flex items-center p-4 justify-between h-16">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-transform text-[#1b190d] dark:text-white">
+<span class="material-symbols-outlined text-2xl">arrow_forward</span>
+</button>
+<h2 class="text-[#1b190d] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">
+                    إضافة معدات للطلب
+                </h2>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-transform text-[#1b190d] dark:text-white relative">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-black border border-background-light dark:border-background-dark">2</span>
+</button>
+</div>
+</header>
+<div class="sticky top-16 z-30 bg-background-light dark:bg-background-dark pt-2 pb-4 shadow-sm transition-colors duration-300">
+<div class="flex gap-3 px-4 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 transition-transform active:scale-95">
+<p class="text-[#1b190d] text-sm font-bold leading-normal">الكل</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2c2a18] border border-gray-200 dark:border-[#44402a] px-5 transition-colors hover:border-primary active:scale-95">
+<p class="text-[#1b190d] dark:text-[#e0dcc5] text-sm font-medium leading-normal">حفارات</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2c2a18] border border-gray-200 dark:border-[#44402a] px-5 transition-colors hover:border-primary active:scale-95">
+<p class="text-[#1b190d] dark:text-[#e0dcc5] text-sm font-medium leading-normal">شيولات</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2c2a18] border border-gray-200 dark:border-[#44402a] px-5 transition-colors hover:border-primary active:scale-95">
+<p class="text-[#1b190d] dark:text-[#e0dcc5] text-sm font-medium leading-normal">صهاريج</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2c2a18] border border-gray-200 dark:border-[#44402a] px-5 transition-colors hover:border-primary active:scale-95">
+<p class="text-[#1b190d] dark:text-[#e0dcc5] text-sm font-medium leading-normal">رافعات</p>
+</button>
+</div>
+</div>
+<main class="flex flex-col gap-4 px-4 py-2">
+<div class="group flex flex-col bg-white dark:bg-[#2c2a18] rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-[#44402a] overflow-hidden transition-all hover:shadow-md cursor-pointer">
+<div class="flex items-center gap-4 p-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Yellow excavator on construction site side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_vJy_Tcq43Zo0CF2Ll7GB7yVBwRjfpyyhXQ2WLuK7mlM4XUL1QothU4tK9DqfIExRpaDI1FKfEPYb-bdcyOCEXKrigtFg-ymcBW1-VK7VROjsyqOJSVYp7oI0o9Pp17Rfmm-vJqeiyD_jrD6TuVDn-5DZ-UToVpxZTWAGx6-7B6yfaculRiRV7WqKrEWFfaXaE5SB4X4u91vROy1M3lENymbvw0eGX03x633lgQSaT9fPXkC73P1czhJF0WyZb5WkyxXKXVfiTZU");'></div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="text-[#1b190d] dark:text-white text-base font-bold leading-normal line-clamp-1">حفار 20 طن</h3>
+<p class="text-[#9a8d4c] dark:text-[#d1c48f] text-sm font-medium leading-normal line-clamp-2 mt-1">كاتربيلر أو ما يعادله - موديل 2020+</p>
+<div class="mt-2 flex items-center gap-1">
+<span class="inline-flex items-center rounded-md bg-gray-100 dark:bg-white/10 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10">سائق مشمول</span>
+</div>
+</div>
+</div>
+</div>
+<button class="flex w-full items-center justify-between border-t border-gray-100 dark:border-[#44402a] bg-gray-50/50 dark:bg-[#252315] px-4 py-3 transition-colors hover:bg-primary/5 active:bg-primary/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+<span class="text-sm font-bold text-[#1b190d] dark:text-white">تخصيص وإضافة</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-lg rtl:rotate-180">arrow_forward_ios</span>
+</button>
+</div>
+<div class="group flex flex-col bg-white dark:bg-[#2c2a18] rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-[#44402a] overflow-hidden transition-all hover:shadow-md cursor-pointer">
+<div class="flex items-center gap-4 p-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Heavy yellow wheel loader front view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVe7wgJ1OB_5-5aw1mfZZ_tqTvjrPNF9RyscQbfY_zjhQ4D0-aGFt_tz4fMstA6QCOuyIjNW0iez8sF1VsRTf5uguOIAMtFnViDKvdQOYCn6ODVSfWpTy1JS9aiS8YoORC0K9ryDEW29XWVeN8LcL9Gvs4PeTp-4j9ceIgPmH2bSvnE4-ocLMQeXYjqXR9krOta3Hx_yhzJxEx6CQU7GfeoAdbGW4k_i1WugTdaaJefdXwB8SP73Q0B1vvjnjHbIiwgJItk3fKEiY");'></div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="text-[#1b190d] dark:text-white text-base font-bold leading-normal line-clamp-1">شيول كبير (966)</h3>
+<p class="text-[#9a8d4c] dark:text-[#d1c48f] text-sm font-medium leading-normal line-clamp-2 mt-1">سعة جرافة 4 متر مكعب</p>
+<div class="mt-2 flex items-center gap-1">
+<span class="inline-flex items-center rounded-md bg-gray-100 dark:bg-white/10 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10">وقود مشمول</span>
+</div>
+</div>
+</div>
+</div>
+<button class="flex w-full items-center justify-between border-t border-gray-100 dark:border-[#44402a] bg-gray-50/50 dark:bg-[#252315] px-4 py-3 transition-colors hover:bg-primary/5 active:bg-primary/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+<span class="text-sm font-bold text-[#1b190d] dark:text-white">تخصيص وإضافة</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-lg rtl:rotate-180">arrow_forward_ios</span>
+</button>
+</div>
+<div class="group flex flex-col bg-white dark:bg-[#2c2a18] rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-[#44402a] overflow-hidden transition-all hover:shadow-md cursor-pointer">
+<div class="flex items-center gap-4 p-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Blue water tank truck on road" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhC9_sQp__f_2ZvxWaXQbSfIyAY3kexn2tILlN7i9UjWU7yxS32SLHvRLem80fwaD6SqsUdvJRQful6JCRgacL1gVk2W3Lbq7kNPiJl3oTVmm_srBda-N2USN22zE4UO-l5QtdOxX8naFjxoU_RcmLoI7SiUwOXUOttDRmcrTJJXKoxk2sqgWTELUiZ5PvfEtW2Xox8GquTkCLsLjqr7eF_m41PzOdLhqWudIqqEb-IhTQRbWRPO3xjlGLYaS5OBK_agnG6kmRaWc");'></div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="text-[#1b190d] dark:text-white text-base font-bold leading-normal line-clamp-1">وايت ماء صالح للشرب</h3>
+<p class="text-[#9a8d4c] dark:text-[#d1c48f] text-sm font-medium leading-normal line-clamp-2 mt-1">سعة 18000 لتر - ستانلس ستيل</p>
+</div>
+</div>
+</div>
+<button class="flex w-full items-center justify-between border-t border-gray-100 dark:border-[#44402a] bg-gray-50/50 dark:bg-[#252315] px-4 py-3 transition-colors hover:bg-primary/5 active:bg-primary/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+<span class="text-sm font-bold text-[#1b190d] dark:text-white">تخصيص وإضافة</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-lg rtl:rotate-180">arrow_forward_ios</span>
+</button>
+</div>
+<div class="group flex flex-col bg-white dark:bg-[#2c2a18] rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none border border-transparent dark:border-[#44402a] overflow-hidden transition-all hover:shadow-md cursor-pointer">
+<div class="flex items-center gap-4 p-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Large yellow bulldozer on dirt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOW_BvVgRA-0NnNNxRVstrP0FfqGO6EwjpTbBHMkSJoa_6HN12BPRWRrks5XSo5jF98jPdJ_Kno6rQrmkeq91mb0qBZUSSXgW1TVEjd_2WKiQC03Gc5Ab1BJuGR-DxWcZYR5mlyLhW-oh43-uP4-vwCxyoXlTnde6kaK6A1KfgNn-e1152b34P6iJZVBdKEGXWwf5ku46j3VhG7h48ahCeAWeAA3mZKXh1YKV96X7XRCjMEZCTxGOY_J3y9l9Rmxfg23JBJ-mQOEQ");'></div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="text-[#1b190d] dark:text-white text-base font-bold leading-normal line-clamp-1">بلدوزر D8</h3>
+<p class="text-[#9a8d4c] dark:text-[#d1c48f] text-sm font-medium leading-normal line-clamp-2 mt-1">مجهز للعمل الشاق في الصحراء</p>
+</div>
+</div>
+</div>
+<button class="flex w-full items-center justify-between border-t border-gray-100 dark:border-[#44402a] bg-gray-50/50 dark:bg-[#252315] px-4 py-3 transition-colors hover:bg-primary/5 active:bg-primary/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+<span class="text-sm font-bold text-[#1b190d] dark:text-white">تخصيص وإضافة</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-lg rtl:rotate-180">arrow_forward_ios</span>
+</button>
+</div>
+</main>
+</div>
+<div class="fixed bottom-[80px] left-0 right-0 z-30 p-4 pointer-events-none">
+<div class="max-w-md mx-auto pointer-events-auto">
+<button class="flex w-full items-center justify-between rounded-xl bg-primary px-4 py-3 shadow-[0_8px_16px_rgba(236,200,19,0.3)] transition-transform active:scale-[0.98]">
+<div class="flex items-center gap-2">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-black/20 text-xs font-bold text-black">2</span>
+<span class="text-base font-bold text-[#1b190d]">مراجعة الطلب</span>
+</div>
+<div class="flex items-center text-[#1b190d]">
+<span class="text-sm font-semibold opacity-80 ml-1">التالي</span>
+<span class="material-symbols-outlined rtl:rotate-180">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<nav class="fixed bottom-0 left-0 right-0 z-40 flex h-[80px] w-full items-start justify-around bg-white dark:bg-[#1a180e] border-t border-gray-200 dark:border-gray-800 pb-safe pt-2">
+<button class="group flex flex-col items-center justify-center gap-1 p-2 w-16">
+<span class="material-symbols-outlined text-2xl text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">home</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-[#1b190d] dark:group-hover:text-white">الرئيسية</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-1 p-2 w-16">
+<span class="material-symbols-outlined text-2xl text-primary font-bold">add_circle</span>
+<span class="text-[10px] font-bold text-[#1b190d] dark:text-white">جديد</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-1 p-2 w-16">
+<span class="material-symbols-outlined text-2xl text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">list_alt</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-[#1b190d] dark:group-hover:text-white">طلباتي</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-1 p-2 w-16">
+<span class="material-symbols-outlined text-2xl text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">person</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-[#1b190d] dark:group-hover:text-white">حسابي</span>
+</button>
+</nav>
+<div class="fixed bottom-[80px] left-0 right-0 h-12 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent pointer-events-none z-20"></div>
+
+</body></html>
