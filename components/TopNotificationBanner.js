@@ -43,11 +43,12 @@ export default function TopNotificationBanner({
                 easing: Easing.out(Easing.cubic),
             }).start();
 
-            // Auto-hide for errors only
-            if (type === 'error') {
+            // Auto-hide logic
+            if (type === 'error' || type === 'success') {
+                const duration = type === 'success' ? 1000 : 3000;
                 const timer = setTimeout(() => {
                     hide();
-                }, 3000);
+                }, duration);
                 return () => clearTimeout(timer);
             }
         } else {
