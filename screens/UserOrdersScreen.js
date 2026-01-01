@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     },
     headerRow: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         paddingTop: 12,
     },

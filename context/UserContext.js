@@ -13,14 +13,14 @@ export const UserProvider = ({ children }) => {
         password: 'password123', // Mock password for demo
     });
     const [loading, setLoading] = useState(true);
-    const [location, setLocation] = useState('الرياض، المملكة العربية السعودية');
+    const [location, setLocation] = useState('الرياض');
 
     const LOCATIONS = [
-        'الرياض، المملكة العربية السعودية',
-        'جدة، المملكة العربية السعودية',
-        'الدمام، المملكة العربية السعودية',
-        'مكة المكرمة، المملكة العربية السعودية',
-        'المدينة المنورة، المملكة العربية السعودية',
+        'الرياض',
+        'جدة',
+        'الدمام',
+        'مكة المكرمة',
+        'المدينة المنورة',
     ];
 
     // Load user data from storage on mount

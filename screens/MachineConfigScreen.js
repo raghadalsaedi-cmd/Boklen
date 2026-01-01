@@ -52,7 +52,7 @@ export default function MachineConfigScreen({ navigation, route }) {
             subtitle: machine.subtitle,
             image: machine.image,
             rentalType,
-            fuelType: fuelType === 'diesel' ? 'ديزل' : 'بنزين',
+            fuelType: fuelType === 'diesel' ? 'ديزل' : 'بدون ديزل',
             quantity,
             price: rentalType === 'trip' ? total : 0, // Simplified price logic for example
             notes,
@@ -182,7 +182,7 @@ export default function MachineConfigScreen({ navigation, route }) {
                                             size={32}
                                             color={fuelType === 'gasoline' ? COLORS.primary : '#94a3b8'}
                                         />
-                                        <Text style={styles.rentalTypeName}>بنزين</Text>
+                                        <Text style={styles.rentalTypeName}>بدون ديزل</Text>
                                         {fuelType === 'gasoline' && (
                                             <View style={styles.checkIcon}>
                                                 <MaterialIcons name="check" size={14} color="black" />
