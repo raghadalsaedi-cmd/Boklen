@@ -166,7 +166,10 @@ const styles = StyleSheet.create({
         color: COLORS.textDark,
     },
     content: {
-        padding: 24,
+        paddingLeft: 24,
+        paddingTop: 24,
+        paddingBottom: 24,
+        paddingRight: 0,
     },
     inputGroup: {
         marginBottom: 20,
@@ -180,7 +183,7 @@ const styles = StyleSheet.create({
         width: '100%',
         alignSelf: 'stretch',
         writingDirection: 'rtl',
-        marginRight: -24,
+        paddingRight: 24,
     },
     inputContainer: {
         width: '100%',
@@ -193,6 +196,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
         height: 56,
         gap: 12,
+        marginRight: 24,
     },
     readOnlyContainer: {
         width: '100%',
@@ -205,6 +209,7 @@ const styles = StyleSheet.create({
         borderColor: COLORS.border,
         paddingHorizontal: 8,
         height: 56,
+        marginRight: 24,
     },
     iconWrapper: {
         width: 36,

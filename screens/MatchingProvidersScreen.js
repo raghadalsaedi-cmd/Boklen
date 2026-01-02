@@ -266,6 +266,12 @@ export default function MatchingProvidersScreen({ navigation }) {
                             <Text style={sortBy === 'highestRated' ? styles.filterChipTextActive : styles.filterChipText}>الأعلى تقييماً</Text>
                             <MaterialIcons name="keyboard-arrow-down" size={16} color={sortBy === 'highestRated' ? 'white' : COLORS.textDark} />
                         </TouchableOpacity>
+                        <TouchableOpacity
+                            style={[styles.filterChip, sortBy === 'postRequest' && styles.filterChipActive]}
+                            onPress={() => setSortBy('postRequest')}
+                        >
+                            <Text style={sortBy === 'postRequest' ? styles.filterChipTextActive : styles.filterChipText}>طرح الطلب</Text>
+                        </TouchableOpacity>
                     </ScrollView>
                 </View>
 

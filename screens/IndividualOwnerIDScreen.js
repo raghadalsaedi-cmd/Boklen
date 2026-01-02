@@ -34,12 +34,14 @@ export default function IndividualOwnerIDScreen({ navigation }) {
     const [errors, setErrors] = useState({
         fullName: '',
         idNumber: '',
+        birthDate: '',
         frontId: '',
         backId: '',
     });
     const [touched, setTouched] = useState({
         fullName: false,
         idNumber: false,
+        birthDate: false,
         frontId: false,
         backId: false,
     });
@@ -51,11 +53,34 @@ export default function IndividualOwnerIDScreen({ navigation }) {
         return `${year}/${month}/${day}`;
     };
 
+    const calculateAge = (birthDate) => {
+        const today = new Date();
+        const birthDateObj = new Date(birthDate);
+        let age = today.getFullYear() - birthDateObj.getFullYear();
+        const monthDiff = today.getMonth() - birthDateObj.getMonth();
+
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+            age--;
+        }
+
+        return age;
+    };
+
+    const validateAge = (date) => {
+        const age = calculateAge(date);
+        if (age < 18) {
+            return 'يجب أن يكون عمرك 18 سنة أو أكثر';
+        }
+        return '';
+    };
+
     const handleDateChange = (event, selectedDate) => {
         if (Platform.OS === 'android') {
             setShowDatePicker(false);
             if (selectedDate) {
                 setBirthDate(selectedDate);
+                setTouched(prev => ({ ...prev, birthDate: true }));
+                setErrors(prev => ({ ...prev, birthDate: validateAge(selectedDate) }));
             }
         } else {
             // On iOS, update the temp date as user scrolls
@@ -67,6 +92,8 @@ export default function IndividualOwnerIDScreen({ navigation }) {
 
     const confirmDateSelection = () => {
         setShowDatePicker(false);
+        setTouched(prev => ({ ...prev, birthDate: true }));
+        setErrors(prev => ({ ...prev, birthDate: validateAge(birthDate) }));
     };
 
     const validateFullName = (name) => {
@@ -121,14 +148,19 @@ export default function IndividualOwnerIDScreen({ navigation }) {
         const newErrors = {
             fullName: validateFullName(fullName),
             idNumber: validateIdNumber(idNumber),
-            frontId: !frontIdFile ? 'يرجى رفع صورة الهوية من الأمام' : '',
-            backId: !backIdFile ? 'يرجى رفع صورة الهوية من الخلف' : '',
+            birthDate: validateAge(birthDate),
+            // Temporarily disabled ID photo validation
+            // frontId: !frontIdFile ? 'يرجى رفع صورة الهوية من الأمام' : '',
+            // backId: !backIdFile ? 'يرجى رفع صورة الهوية من الخلف' : '',
+            frontId: '',
+            backId: '',
         };
 
         setErrors(newErrors);
         setTouched({
             fullName: true,
             idNumber: true,
+            birthDate: true,
             frontId: true,
             backId: true,
         });
@@ -139,7 +171,9 @@ export default function IndividualOwnerIDScreen({ navigation }) {
         if (!hasErrors) {
             // Navigate to next screen or submit data
             console.log('Continue with individual owner data');
+            // TODO: Uncomment when next screen is ready
             // navigation.navigate('NextScreen');
+            alert('التحقق من البيانات تم بنجاح! \n(سيتم الانتقال للصفحة التالية قريباً)');
         }
     };
 
@@ -332,12 +366,18 @@ export default function IndividualOwnerIDScreen({ navigation }) {
                     <View style={styles.inputGroup}>
                         <Text style={styles.label}>تاريخ الميلاد</Text>
                         <TouchableOpacity
-                            style={styles.inputContainer}
+                            style={[
+                                styles.inputContainer,
+                                errors.birthDate && touched.birthDate && styles.inputContainerError
+                            ]}
                             onPress={() => setShowDatePicker(true)}
                         >
                             <MaterialIcons name="calendar-today" size={20} color={COLORS.placeholderGray} style={styles.inputIcon} />
                             <Text style={styles.dateText}>{formatDate(birthDate)}</Text>
                         </TouchableOpacity>
+                        {errors.birthDate && touched.birthDate && (
+                            <Text style={styles.errorText}>{errors.birthDate}</Text>
+                        )}
                     </View>
 
                     {/* iOS Date Picker Modal */}

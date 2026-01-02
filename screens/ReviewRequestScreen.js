@@ -40,6 +40,13 @@ export default function ReviewRequestScreen({ navigation }) {
                         <Text style={styles.badgeText}>{item.tag}</Text>
                     </View>
                 )}
+                {/* Delete Button */}
+                <TouchableOpacity
+                    style={styles.deleteButton}
+                    onPress={() => handleDelete(item.cartId)}
+                >
+                    <MaterialIcons name="delete" size={22} color={COLORS.surfaceLight} />
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -316,6 +323,22 @@ const styles = StyleSheet.create({
         height: 8,
         borderRadius: 4,
         backgroundColor: '#10b981',
+    },
+    deleteButton: {
+        position: 'absolute',
+        top: 16,
+        right: 16,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: 'rgba(239, 68, 68, 0.9)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
     },
 
     addMoreBtn: {
