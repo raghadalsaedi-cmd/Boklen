@@ -268,7 +268,7 @@ export default function MatchingProvidersScreen({ navigation }) {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={[styles.filterChip, sortBy === 'postRequest' && styles.filterChipActive]}
-                            onPress={() => setSortBy('postRequest')}
+                            onPress={() => navigation.navigate('OffersBoard')}
                         >
                             <Text style={sortBy === 'postRequest' ? styles.filterChipTextActive : styles.filterChipText}>طرح الطلب</Text>
                         </TouchableOpacity>

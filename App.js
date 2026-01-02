@@ -38,6 +38,9 @@ import MatchingProvidersScreen from './screens/MatchingProvidersScreen';
 import OrderSummaryScreen from './screens/OrderSummaryScreen';
 import MachineConfigScreen from './screens/MachineConfigScreen';
 import FindingProvidersScreen from './screens/FindingProvidersScreen';
+import OffersBoardScreen from './screens/OffersBoardScreen';
+import NegotiationChatScreen from './screens/NegotiationChatScreen';
+import OrderConfirmationScreen from './screens/OrderConfirmationScreen';
 
 // Legacy/Alternative Flow (Keeping for now if needed, or reachable via other paths)
 import BookingRequestScreen from './screens/BookingRequestScreen';
@@ -111,6 +114,9 @@ export default function App() {
             <Stack.Screen name="OrderSummary" component={OrderSummaryScreen} />
             <Stack.Screen name="MachineConfig" component={MachineConfigScreen} />
             <Stack.Screen name="FindingProviders" component={FindingProvidersScreen} />
+            <Stack.Screen name="OffersBoard" component={OffersBoardScreen} />
+            <Stack.Screen name="NegotiationChat" component={NegotiationChatScreen} />
+            <Stack.Screen name="OrderConfirmation" component={OrderConfirmationScreen} />
 
             {/* Legacy/Other Screens */}
             <Stack.Screen name="BookingRequest" component={BookingRequestScreen} />
