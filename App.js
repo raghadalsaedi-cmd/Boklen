@@ -29,6 +29,7 @@ import LanguageSettingsScreen from './screens/LanguageSettingsScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
 import ChangePasswordScreen from './screens/ChangePasswordScreen';
 import LiveChatScreen from './screens/LiveChatScreen';
+import AccountTypeSelectionScreen from './screens/AccountTypeSelectionScreen';
 
 // New Booking Flow
 import AddMachineryScreen from './screens/AddMachineryScreen';
@@ -46,6 +47,7 @@ import BookingConfirmationScreen from './screens/BookingConfirmationScreen';
 // Provider Flow Screens
 import CompanyInfoScreen from './screens/CompanyInfoScreen';
 import RepInfoScreen from './screens/RepInfoScreen';
+import IndividualOwnerIDScreen from './screens/IndividualOwnerIDScreen';
 import UploadDocsScreen from './screens/UploadDocsScreen';
 import VerificationPendingScreen from './screens/VerificationPendingScreen';
 import FleetManagementScreen from './screens/FleetManagementScreen';
@@ -116,8 +118,10 @@ export default function App() {
             <Stack.Screen name="BookingConfirmation" component={BookingConfirmationScreen} />
 
             {/* Provider Flow */}
+            <Stack.Screen name="AccountTypeSelection" component={AccountTypeSelectionScreen} />
             <Stack.Screen name="CompanyInfo" component={CompanyInfoScreen} />
             <Stack.Screen name="RepInfo" component={RepInfoScreen} />
+            <Stack.Screen name="IndividualOwnerID" component={IndividualOwnerIDScreen} />
             <Stack.Screen name="UploadDocs" component={UploadDocsScreen} />
             <Stack.Screen name="VerificationPending" component={VerificationPendingScreen} />
             <Stack.Screen name="FleetManagement" component={FleetManagementScreen} />

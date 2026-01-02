@@ -204,7 +204,7 @@ export default function UserRegistrationScreen({ navigation }) {
                         {/* Provider Switch */}
                         <TouchableOpacity
                             style={styles.providerSwitch}
-                            onPress={() => navigation.navigate('CompanyInfo')}
+                            onPress={() => navigation.navigate('AccountTypeSelection')}
                         >
                             <Text style={styles.providerSwitchText}>الدخول كمزود خدمة</Text>
                             <MaterialIcons name="business" size={16} color={COLORS.subtext} />
