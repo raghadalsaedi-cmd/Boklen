@@ -169,11 +169,17 @@ export default function IndividualOwnerIDScreen({ navigation }) {
         const hasErrors = Object.values(newErrors).some(error => error !== '');
 
         if (!hasErrors) {
-            // Navigate to next screen or submit data
+            // Navigate to Fleet Management screen
             console.log('Continue with individual owner data');
-            // TODO: Uncomment when next screen is ready
-            // navigation.navigate('NextScreen');
-            alert('التحقق من البيانات تم بنجاح! \n(سيتم الانتقال للصفحة التالية قريباً)');
+            navigation.navigate('FleetManagement', {
+                ownerData: {
+                    fullName,
+                    idNumber,
+                    birthDate: formatDate(birthDate),
+                    frontIdFile,
+                    backIdFile,
+                }
+            });
         }
     };
 

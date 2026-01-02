@@ -129,8 +129,30 @@ export default function AddMachineScreen({ navigation }) {
 
         if (!isValid) return;
 
+        // Create the new equipment object
+        const newEquipment = {
+            id: Date.now().toString(), // Generate unique ID
+            nameAr: `${brand} ${model}`, // Combine brand and model for name
+            price: dPrice, // Use daily price as the main price
+            status: 'available', // New equipment is available by default
+            image: images.length > 0 ? images[0] : null, // Use first image if available
+            category: category, // heavy, light, or tankers
+            city: city,
+            monthlyPrice: mPrice,
+        };
+
         Alert.alert("نجاح", "تمت إضافة المعدة بنجاح", [
-            { text: "حسنًا", onPress: () => navigation.goBack() }
+            {
+                text: "حسنًا",
+                onPress: () => {
+                    // Navigate back to FleetManagement with the new equipment data
+                    navigation.navigate('FleetManagement', {
+                        newItem: newEquipment,
+                        refresh: true,
+                        activeTab: 'all' // Set to show "All" tab
+                    });
+                }
+            }
         ]);
     };
 

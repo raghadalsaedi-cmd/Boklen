@@ -164,8 +164,14 @@ export default function FleetManagementScreen({ navigation, route }) {
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* Header - No Menu Icon */}
+            {/* Header with Back Button */}
             <View style={styles.header}>
+                <TouchableOpacity
+                    style={styles.backButton}
+                    onPress={() => navigation.goBack()}
+                >
+                    <MaterialIcons name="arrow-forward" size={24} color={COLORS.textLight} />
+                </TouchableOpacity>
                 <Text style={styles.headerTitle}>إدارة الأسطول</Text>
             </View>
 
@@ -259,7 +265,14 @@ const styles = StyleSheet.create({
         alignItems: 'center', // Center title
         justifyContent: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: COLORS.borderLight
+        borderBottomColor: COLORS.borderLight,
+        flexDirection: 'row', // For positioning back button
+    },
+    backButton: {
+        position: 'absolute',
+        right: 16,
+        padding: 4,
+        zIndex: 1,
     },
     headerTitle: { fontSize: 18, fontWeight: 'bold', color: COLORS.textLight },
 
